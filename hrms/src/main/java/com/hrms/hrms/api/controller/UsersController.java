@@ -9,14 +9,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hrms.hrms.business.abstracts.UserService;
+import com.hrms.hrms.core.utilities.results.DataResult;
 import com.hrms.hrms.entities.concretes.Users;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/user")
 public class UsersController {
-
-private UserService userService;
-	
+	private UserService userService;
 	@Autowired
 	public UsersController(UserService userService) {
 		super();
@@ -24,12 +23,9 @@ private UserService userService;
 	}
 	
 	@GetMapping("/getall")
-	@ResponseBody
-	public List<Users> getAll(){
+	public DataResult<List<Users>> getAll(){
 		return this.userService.getAll();
 	}
-
-	public UsersController() {
-		super();
-	}
+	
+	
 }
