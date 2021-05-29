@@ -1,6 +1,7 @@
 package com.hrms.hrms.business.concretes;
 
 import java.util.List;
+
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ import com.hrms.hrms.dataAccess.abstracts.EmployerDao;
 import com.hrms.hrms.dataAccess.abstracts.UserDao;
 import com.hrms.hrms.entities.concretes.Employers;
 
+import java.util.regex.Pattern;
 
 @Service
 @AllArgsConstructor
@@ -35,16 +37,16 @@ public class EmployerManager implements EmployerService {
 	public Result add(Employers employer) {
 		
 		if(!EmployerCheckHelper.allFieldsAreRequired(employer)) {
-			return new ErrorResult("Tüm alanları doldurmalısınız");
+			return new ErrorResult("Tüm alanları doldurmalısınız.");
 			
 		}else if(!isEmailFormatValid(employer)) {
-			return new ErrorResult("Email herhangi bir şirkete ait değildir");
+			return new ErrorResult("Email herhangi bir şirkete ait değildir.");
 			
 		}else if(!employer.getPassword().equals(employer.getRepeatOfPassword())) {
-			return new ErrorResult("Şifreler Uyuşmamaktadır");
+			return new ErrorResult("Şifreler Uyuşmamaktadır.");
 			
 		}else if(userDao.findByEmail(employer.getEmail()) != null) {
-			return new ErrorResult("Kullanıcı Zaten Kayıtlıdır.Yeni kullanıcı oluşturabilirsiniz");
+			return new ErrorResult("Kullanıcı Zaten Kayıtlıdır.Yeni kullanıcı oluşturabilirsiniz.");
 			
 		}else if(!(emailValidationAdapter.isActivat(employer)
 				&& systemPersonnelValidationAdapter.isActivated(employer))) {
@@ -52,14 +54,14 @@ public class EmployerManager implements EmployerService {
 			
 		}else {
 			this.employerDao.save(employer);
-			return new SuccessResult("Kayıt Başarılı Olarak Tamamlandı");
+			return new SuccessResult("Kayıt Başarılı Olarak Tamamlandı.");
 		}
 	}
 	
 	private boolean isEmailFormatValid(Employers employer) {
 		String EMAIL_PATTERN = "^[A-Z0-9._%+-]+@"+employer.getWebSite();
-		java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(EMAIL_PATTERN,
-		java.util.regex.Pattern.CASE_INSENSITIVE);
+		Pattern pattern = java.util.regex.Pattern.compile(EMAIL_PATTERN,
+		Pattern.CASE_INSENSITIVE);
 		return pattern.matcher(employer.getEmail()).find();	
 	}
 }
