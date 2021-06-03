@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.hrms.hrms.business.abstracts.SystemPersonelService;
 import com.hrms.hrms.core.utilities.results.DataResult;
 import com.hrms.hrms.core.utilities.results.SuccessDataResult;
-import com.hrms.hrms.dataAccess.abstracts.JobSeekerDao;
+import com.hrms.hrms.dataAccess.abstracts.CandidateDao;
 import com.hrms.hrms.dataAccess.abstracts.SystemPersonelDao;
 import com.hrms.hrms.entities.concretes.SystemPersonel;
 

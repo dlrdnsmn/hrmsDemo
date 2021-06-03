@@ -9,28 +9,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hrms.hrms.business.abstracts.JobSeekerService;
+import com.hrms.hrms.business.abstracts.LanguageService;
 import com.hrms.hrms.core.utilities.results.DataResult;
 import com.hrms.hrms.core.utilities.results.Result;
-import com.hrms.hrms.entities.concretes.JobSeeker;
+import com.hrms.hrms.entities.concretes.Language;
 
 @RestController
-@RequestMapping("/api/job-seeker")
-public class JobSeekerController {
-	private JobSeekerService jobSeekerService;
+@RequestMapping("/api/languages/")
+public class LanguageController {
+	private LanguageService languageService;
 
 	@Autowired
-	public JobSeekerController(JobSeekerService jobSeekerService) {
-		this.jobSeekerService = jobSeekerService;
+	public LanguageController(LanguageService languageService) {
+		super();
+		this.languageService = languageService;
+	}
+
+	@GetMapping("getAll")
+	public DataResult<List<Language>> getAll() {
+		return this.languageService.getAll();
 	}
 	
-	@GetMapping("/getall")
-	public DataResult<List<JobSeeker>> getAll(){
-		return this.jobSeekerService.getAll();
+	@PostMapping("add")
+	public Result add(@RequestBody Language language) {
+		return this.languageService.add(language);
 	}
-	
-	@PostMapping("/add")
-	public Result add(@RequestBody JobSeeker jobSeeker) {
-		return this.jobSeekerService.add(jobSeeker);
-	}
+
 }

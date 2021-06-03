@@ -1,8 +1,8 @@
 package com.hrms.hrms.core.abstracts;
 
-import com.hrms.hrms.entities.concretes.JobSeeker;
+import com.hrms.hrms.entities.concretes.Candidate;
 
 public interface MernisValidationService {
 
-	boolean validate(JobSeeker jobSeeker);
+	boolean validate(Candidate jobSeeker);
 }

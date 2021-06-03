@@ -3,13 +3,13 @@ package com.hrms.hrms.core.adapters;
 import org.springframework.stereotype.Service;
 
 import com.hrms.hrms.core.abstracts.MernisValidationService;
-import com.hrms.hrms.entities.concretes.JobSeeker;
+import com.hrms.hrms.entities.concretes.Candidate;
 
 @Service
 public class MernisServiceAdapter  implements MernisValidationService{
 
 	
-	public boolean validate(JobSeeker jobSeeker)  {
+	public boolean validate(Candidate jobSeeker)  {
 		// FAKE DOĞRULAMA SİSTEMİDİR.
 //			KPSPublicSoap soapClient = new KPSPublicSoapProxy();
 //			boolean result = false;

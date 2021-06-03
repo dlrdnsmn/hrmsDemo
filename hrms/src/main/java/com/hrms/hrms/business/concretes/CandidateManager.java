@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.hrms.hrms.business.abstracts.JobSeekerService;
+import com.hrms.hrms.business.abstracts.CandidateService;
 import com.hrms.hrms.core.abstracts.MernisValidationService;
 import com.hrms.hrms.core.adapters.EmailValidationAdapter;
 import com.hrms.hrms.core.utilities.helper.JobSeekerCheckHelper;
@@ -13,27 +13,27 @@ import com.hrms.hrms.core.utilities.results.ErrorResult;
 import com.hrms.hrms.core.utilities.results.Result;
 import com.hrms.hrms.core.utilities.results.SuccessDataResult;
 import com.hrms.hrms.core.utilities.results.SuccessResult;
-import com.hrms.hrms.dataAccess.abstracts.JobSeekerDao;
+import com.hrms.hrms.dataAccess.abstracts.CandidateDao;
 import com.hrms.hrms.dataAccess.abstracts.UserDao;
-import com.hrms.hrms.entities.concretes.JobSeeker;
+import com.hrms.hrms.entities.concretes.Candidate;
 
 import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class JobSeekerManager implements JobSeekerService {
-	private JobSeekerDao jobSeekerDao;
+public class CandidateManager implements CandidateService {
+	private CandidateDao jobSeekerDao;
 	private UserDao userDao;
 	private EmailValidationAdapter emailValidationAdapter;
 	private MernisValidationService mernisValidationService;
 
 	
-	public DataResult<List<JobSeeker>> getAll() {
-		return new SuccessDataResult<List<JobSeeker>>(this.jobSeekerDao.findAll(), "Listeleme Başarılı");
+	public DataResult<List<Candidate>> getAll() {
+		return new SuccessDataResult<List<Candidate>>(this.jobSeekerDao.findAll(), "Listeleme Başarılı");
 	}
 
 
-	public Result add(JobSeeker jobSeeker) {
+	public Result add(Candidate jobSeeker) {
 		if (!JobSeekerCheckHelper.allFieldsAreRequired(jobSeeker)) {
 			return new ErrorResult("Tüm alanları doldurunuz");
 			

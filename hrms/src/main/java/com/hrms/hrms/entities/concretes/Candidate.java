@@ -12,13 +12,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
-@EqualsAndHashCode(callSuper = true)
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "job_seekers")
-@PrimaryKeyJoinColumn(name = "user_id", referencedColumnName = "id")
-public class JobSeeker extends Users {
+@EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "candidates")
+@PrimaryKeyJoinColumn(name = "candidate_id", referencedColumnName = "id")
+public class Candidate extends Users {
 
 	@Column(name = "first_name")
 	private String firstName;
@@ -32,3 +32,5 @@ public class JobSeeker extends Users {
 	@Column(name = "birth_date")
 	private Date dateOfBirth;
 }
+
+

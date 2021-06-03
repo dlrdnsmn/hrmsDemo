@@ -1,9 +1,9 @@
 package com.hrms.hrms.core.utilities.helper;
 
-import com.hrms.hrms.entities.concretes.JobSeeker;
+import com.hrms.hrms.entities.concretes.Candidate;
 
 public class JobSeekerCheckHelper {
-	public static boolean allFieldsAreRequired(JobSeeker jobSeeker ){
+	public static boolean allFieldsAreRequired(Candidate jobSeeker ){
 		if(jobSeeker.getFirstName().isEmpty()
 				|| jobSeeker.getLastName().isEmpty()
 				|| jobSeeker.getIdentityNumber().isEmpty()
