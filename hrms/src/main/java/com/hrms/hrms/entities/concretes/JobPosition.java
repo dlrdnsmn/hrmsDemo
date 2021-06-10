@@ -21,6 +21,7 @@ public class JobPosition {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
+
 	
 	@Column(name="position_name")
 	private String positionName;

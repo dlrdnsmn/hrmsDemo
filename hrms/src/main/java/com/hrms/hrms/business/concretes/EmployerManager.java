@@ -58,6 +58,7 @@ public class EmployerManager implements EmployerService {
 		}
 	}
 	
+	
 	private boolean isEmailFormatValid(Employers employer) {
 		String EMAIL_PATTERN = "^[A-Z0-9._%+-]+@"+employer.getWebSite();
 		Pattern pattern = java.util.regex.Pattern.compile(EMAIL_PATTERN,

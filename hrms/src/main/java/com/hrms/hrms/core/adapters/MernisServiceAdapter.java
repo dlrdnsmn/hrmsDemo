@@ -23,7 +23,9 @@ public class MernisServiceAdapter  implements MernisValidationService{
 //			 return result;
 //		}
 
-		return false;
+		{
+		return true;
+		}
 	}
 	
 	

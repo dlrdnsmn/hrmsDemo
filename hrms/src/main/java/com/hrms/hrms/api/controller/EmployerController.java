@@ -2,6 +2,7 @@ package com.hrms.hrms.api.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +16,7 @@ import com.hrms.hrms.entities.concretes.Employers;
 
 import lombok.AllArgsConstructor;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api/employer")
 @AllArgsConstructor

@@ -33,25 +33,25 @@ public class CandidateManager implements CandidateService {
 	}
 
 
-	public Result add(Candidate jobSeeker) {
-		if (!JobSeekerCheckHelper.allFieldsAreRequired(jobSeeker)) {
+	public Result add(Candidate candidate) {
+		if (!JobSeekerCheckHelper.allFieldsAreRequired(candidate)) {
 			return new ErrorResult("Tüm alanları doldurunuz");
 			
-		}else if(!jobSeeker.getPassword().equals(jobSeeker.getRepeatOfPassword())) {
+		}else if(!candidate.getPassword().equals(candidate.getRepeatOfPassword())) {
 			return new ErrorResult("Şifreler Uyuşmamaktadır ");
 			
-		}else if(!mernisValidationService.validate(jobSeeker)) {
+		}else if(!mernisValidationService.validate(candidate)) {
 			return new SuccessResult("Doğrulama Başarısız !");
 			
-		}else if(userDao.findByEmail(jobSeeker.getEmail()) != null 
-				|| jobSeekerDao.findByIdentityNumber(jobSeeker.getIdentityNumber())!= null) {
+		}else if(userDao.findByEmail(candidate.getEmail()) != null 
+				|| jobSeekerDao.findByIdentityNumber(candidate.getIdentityNumber())!= null) {
 			return new ErrorResult("Kullanıcı Kayıtlı!");
 			
-		}else if(!emailValidationAdapter.isActivat(jobSeeker)) {
+		}else if(!emailValidationAdapter.isActivat(candidate)) {
 			return new ErrorResult("Aktivasyon kodu yanlış");
 			
 		}else {
-			this.jobSeekerDao.save(jobSeeker);
+			this.jobSeekerDao.save(candidate);
 			return new SuccessResult("Kayıt Başarılı");
 		}			
 	}

@@ -51,4 +51,5 @@ public class CvManager implements CvService {
 	            return new ErrorResult("Exception: " + e.getMessage());
 	        }
 
-}}
+}
+}
