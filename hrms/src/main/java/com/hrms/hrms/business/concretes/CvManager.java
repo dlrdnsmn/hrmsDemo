@@ -16,6 +16,7 @@ import com.hrms.hrms.core.utilities.results.SuccessResult;
 import com.hrms.hrms.dataAccess.abstracts.CvDao;
 import com.hrms.hrms.entities.concretes.Candidate;
 import com.hrms.hrms.entities.concretes.Cv;
+import com.hrms.hrms.entities.concretes.Education;
 
 @Service
 public class CvManager implements CvService {
@@ -52,4 +53,8 @@ public class CvManager implements CvService {
 	        }
 
 }
+
+	public DataResult<List<Cv>> getAll() {
+		return new SuccessDataResult<List<Cv>>(this.cvDao.findAll(),"Data listed.");
+	}
 }
