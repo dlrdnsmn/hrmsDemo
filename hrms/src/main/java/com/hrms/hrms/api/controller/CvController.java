@@ -2,7 +2,9 @@ package com.hrms.hrms.api.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +20,7 @@ import com.hrms.hrms.entities.concretes.Candidate;
 import com.hrms.hrms.entities.concretes.Cv;
 import com.hrms.hrms.entities.concretes.Education;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/cv")
 public class CvController {

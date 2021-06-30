@@ -2,6 +2,7 @@ package com.hrms.hrms.api.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import com.hrms.hrms.business.abstracts.CandidateService;
 import com.hrms.hrms.core.utilities.results.DataResult;
 import com.hrms.hrms.core.utilities.results.Result;
 import com.hrms.hrms.entities.concretes.Candidate;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/api/candidate")
